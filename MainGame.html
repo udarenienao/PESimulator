@@ -11,12 +11,27 @@
 </div>
 
 <div id="field">
-    <div id="f1" onclick=""><p>?</p></div>
-    <div id="f2"><p>?</p></div>
-    <div id="f3"><p>?</p></div>
-    <div id="f4"><p>?</p></div>
-    <div id="f5"><p>?</p></div>
-    <div id="f6"><p>?</p></div>
+    <div class = "free" id="f1"><p>?</p></div>
+    <div class="done" id="f11"></div>
+
+    <div class = "free" id="f2"><p>?</p></div>
+    <div class="done" id="f22"></div>
+
+    <div class = "free" id="f3"><p>?</p></div>
+    <div class="done" id="f33"></div>
+
+    <div class = "free" id="f4"><p>?</p></div>
+    <div class="done" id="f44"></div>
+
+    <div class = "free" id="f5"><p>?</p></div>
+    <div class="done" id="f55"></div>
+
+    <div class = "free" id="f6"><p>?</p></div>
+    <div class="done" id="f66"></div>
+</div>
+
+<div id="fieldNE">
+
 </div>
 
 <form id="makeSub">
@@ -25,7 +40,7 @@
     </label><br>
     <label>Преподаватель:
         <select name="select" size="1" >
-            <option selected value="s1">Арсений Шур</option>
+            <option value="s1">Арсений Шур</option>
             <option value="s2">Юрий Окуловский</option>
             <option value="s3">Андрей Гейн</option>
             <option value="s4">Иван Баширов</option>
@@ -33,12 +48,16 @@
         </select>
     </label><br>
     <label>Сложность предмета:
-        <input type="number" name="difficult" min="0" max="10" step="1">
+        <input type="number" name="difficulty" min="0" max="10" step="1">
     </label><br>
     <label>Часы в неделю:
         <input type="number" name="hours">
+    </label><br>
+    <label>
+        <input type="submit" value="Создать предмет!">
     </label>
-
 </form>
+
+<script src="scripts.js"></script>
 </body>
 </html>

@@ -61,69 +61,88 @@ body {
 #field p{
     text-align: center;
     position:relative;
-    font-size: 70px;
 }
-
-#f1{
+.free{
     background: #b2b0b0;
     width: 28%;
     height: 41%;
     position: absolute;
+    cursor:pointer;
+    font-size: 70px;
+}
+
+#f1{
     top:6%;
     left:4%;
-    cursor:pointer;
 }
 
 
 
 #f2{
-    background: #b2b0b0;
-    width: 28%;
-    height: 41%;
-    position: absolute;
     top: 6%;
     left: 36%;
-    cursor:pointer;
 }
 
 #f3{
-    background: #b2b0b0;
-    width: 28%;
-    height: 41%;
-    position: absolute;
     top: 6%;
     right: 4%;
-    cursor:pointer;
 }
 
 #f4{
-    background: #b2b0b0;
-    width: 28%;
-    height: 41%;
-    position: absolute;
     bottom: 6%;
     left: 4%;
-    cursor:pointer;
 }
 
 #f5{
-    background: #b2b0b0;
-    width: 28%;
-    height: 41%;
-    position: absolute;
     bottom: 6%;
     left: 36%;
-    cursor:pointer;
 }
 
 #f6{
-    background: #b2b0b0;
+    bottom: 6%;
+    right: 4%;
+}
+
+.done{
+    background: #ecb39b;
     width: 28%;
     height: 41%;
     position: absolute;
+    cursor:pointer;
+    font-size: 30px;
+    visibility: hidden;
+}
+
+#f11{
+    top:6%;
+    left:4%;
+}
+
+
+
+#f22{
+    top: 6%;
+    left: 36%;
+}
+
+#f33{
+    top: 6%;
+    right: 4%;
+}
+
+#f44{
+    bottom: 6%;
+    left: 4%;
+}
+
+#f55{
+    bottom: 6%;
+    left: 36%;
+}
+
+#f66{
     bottom: 6%;
     right: 4%;
-    cursor:pointer;
 }
 
 #makeSub{

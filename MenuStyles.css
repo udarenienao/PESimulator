@@ -8,8 +8,6 @@ body {
 }
 
 #menu {
-    width:0;
-    height:0;
     left:50%;
     position:absolute;
     margin:auto;
@@ -20,104 +18,25 @@ body {
     position:relative;
     top: 25%;
 }
-
-#start {
+.button{
     position:relative;
-    bottom:330px;
-    right:240px;
-    height:50px;
-    width:500px;
     background:#006680;
-    text-align:center;
-    font-size:30px;
-    background-size: 1px 300%;
     -webkit-transition:0.5s;
     transition:0.5s;
     color:orange;
     font-family: "font", serif;
     cursor:pointer;
+    height:50px;
+    width:500px;
+    text-align:center;
+    font-size:30px;
+    background-size: 1px 300%;
+    right: 50%;
+    bottom: 300px;
 }
-
-#start:hover {
+.button:hover{
     background:#7A0000;
     color:white;
     -webkit-transform:rotate(-1deg);
     transform:rotate(-2deg);
-}
-
-#learn:hover {
-    background:#7A0000;
-    color:white;
-
-    -webkit-transform:rotate(-2deg);
-    transform:rotate(-2deg);
-
-
-}
-
-#exit:hover {
-    background:#7A0000;
-    color:white;
-    -webkit-transform:rotate(-2deg);
-    transform:rotate(-2deg);
-
-}
-
-#rules:hover {
-    background:#7A0000;
-    color:white;
-    -webkit-transform:rotate(-2deg);
-    transform:rotate(-2deg);
-
-}
-
-#learn {
-    height:50px;
-    width:500px;
-    background:#006680;
-    position:relative;
-    bottom:345px;
-    right:240px;
-    text-align:center;
-    font-size:30px;
-    font-family: "font", serif;
-    color:orange;
-    -webkit-transition:0.5s;
-    transition:0.5s;
-    cursor:pointer;
-}
-
-#rules {
-
-    height:50px;
-    width:500px;
-    background:#006680;
-    position:relative;
-    bottom:360px;
-    right:240px;
-    font-size:30px;
-    text-align:center;
-    font-family: "font", serif;
-    color:orange;
-    -webkit-transition:0.5s;
-    transition:0.5s;
-    cursor:pointer;
-
-}
-
-#exit {
-    height:50px;
-    width:500px;
-    position:relative;
-    background:#006680;
-    bottom:375px;
-    font-size:30px;
-    right:240px;
-    text-align:center;
-    font-family: "font", serif;
-    color:orange;
-    -webkit-transition:0.5s;
-    transition:0.5s;
-    cursor:pointer;
-
 }

@@ -5,25 +5,23 @@
 
 body {
     background: #90eadf;
-
 }
 
 #menu {
-    width:0px;
-    height:0px;
-
-    border-left: 300px solid transparent;
-    border-right:300px solid transparent;
-    border-top: 300px solid transparent;
-    border-radius: 0px;
+    width:0;
+    height:0;
+    left:50%;
     position:absolute;
     margin:auto;
-    top:25%;
-    left:30%;
+    top:70%;
+}
+
+#menu p{
+    position:relative;
+    top: 25%;
 }
 
 #start {
-
     position:relative;
     bottom:330px;
     right:240px;
@@ -45,8 +43,6 @@ body {
     color:white;
     -webkit-transform:rotate(-1deg);
     transform:rotate(-2deg);
-
-
 }
 
 #learn:hover {
@@ -75,12 +71,6 @@ body {
 
 }
 
-
-#start p {
-    position:relative;
-    top: 25%;
-}
-
 #learn {
     height:50px;
     width:500px;
@@ -95,14 +85,6 @@ body {
     -webkit-transition:0.5s;
     transition:0.5s;
     cursor:pointer;
-
-
-
-}
-#learn p {
-    position:relative;
-    top: 25%;
-
 }
 
 #rules {
@@ -123,12 +105,6 @@ body {
 
 }
 
-#rules p {
-    position:relative;
-    top: 25%;
-
-}
-
 #exit {
     height:50px;
     width:500px;
@@ -144,9 +120,4 @@ body {
     transition:0.5s;
     cursor:pointer;
 
-}
-
-#exit p {
-    position: relative;
-    top: 25%;
 }

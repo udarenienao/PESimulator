@@ -2,9 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Симулятор Павла Егорова</title>
+    <link rel="stylesheet" href="GameStyles.css">
 </head>
 <body>
+<div id="buttons">
+    <div id="menu" onclick="window.location.href='menu.html'"><p>НАЗАД</p></div>
+</div>
 
+<div id="field">
+    <div id="f1" onclick=""><p>?</p></div>
+    <div id="f2"><p>?</p></div>
+    <div id="f3"><p>?</p></div>
+    <div id="f4"><p>?</p></div>
+    <div id="f5"><p>?</p></div>
+    <div id="f6"><p>?</p></div>
+</div>
+
+<form id="makeSub">
+    <label>Название предмета:
+        <input type="text" name="name">
+    </label><br>
+    <label>Преподаватель:
+        <select name="select" size="1" >
+            <option selected value="s1">Арсений Шур</option>
+            <option value="s2">Юрий Окуловский</option>
+            <option value="s3">Андрей Гейн</option>
+            <option value="s4">Иван Баширов</option>
+            <option value="s5">Ульяна Алексеева</option>
+        </select>
+    </label><br>
+    <label>Сложность предмета:
+        <input type="number" name="difficult" min="0" max="10" step="1">
+    </label><br>
+    <label>Часы в неделю:
+        <input type="number" name="hours">
+    </label>
+
+</form>
 </body>
 </html>

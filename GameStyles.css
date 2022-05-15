@@ -1,0 +1,154 @@
+@font-face {
+    font-family: "font";
+    src: url("font.ttf");
+}
+
+body {
+    background: #90eadf;
+}
+
+#buttons{
+    width:0px;
+    height:0px;
+    border-left: 200px solid transparent;
+    border-right:300px solid transparent;
+    border-top: 300px solid transparent;
+    border-radius: 0px;
+    position:absolute;
+    margin:auto;
+
+}
+
+#menu{
+    position:relative;
+    bottom:330px;
+    right:200px;
+    height:50px;
+    width:150px;
+    background:#006680;
+    text-align:center;
+    font-size:30px;
+    background-size: 1px 300%;
+    -webkit-transition:0.5s;
+    transition:0.5s;
+    color:orange;
+    font-family: "font", serif;
+    cursor:pointer;
+}
+
+#menu:hover {
+    background:#7A0000;
+    color:white;
+    -webkit-transform:rotate(-1deg);
+    transform:rotate(-2deg);
+}
+
+#menu p {
+    position:relative;
+    top: 25%;
+}
+
+#field{
+    width: 70%;
+    height: 70%;
+    background: #e5e1c3;
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    border: 10px #a47829 double;
+    font-family: "font", serif;
+}
+#field p{
+    text-align: center;
+    position:relative;
+    font-size: 70px;
+}
+
+#f1{
+    background: #b2b0b0;
+    width: 28%;
+    height: 41%;
+    position: absolute;
+    top:6%;
+    left:4%;
+    cursor:pointer;
+}
+
+
+
+#f2{
+    background: #b2b0b0;
+    width: 28%;
+    height: 41%;
+    position: absolute;
+    top: 6%;
+    left: 36%;
+    cursor:pointer;
+}
+
+#f3{
+    background: #b2b0b0;
+    width: 28%;
+    height: 41%;
+    position: absolute;
+    top: 6%;
+    right: 4%;
+    cursor:pointer;
+}
+
+#f4{
+    background: #b2b0b0;
+    width: 28%;
+    height: 41%;
+    position: absolute;
+    bottom: 6%;
+    left: 4%;
+    cursor:pointer;
+}
+
+#f5{
+    background: #b2b0b0;
+    width: 28%;
+    height: 41%;
+    position: absolute;
+    bottom: 6%;
+    left: 36%;
+    cursor:pointer;
+}
+
+#f6{
+    background: #b2b0b0;
+    width: 28%;
+    height: 41%;
+    position: absolute;
+    bottom: 6%;
+    right: 4%;
+    cursor:pointer;
+}
+
+#makeSub{
+    width: 70%;
+    height: 70%;
+    background: #e5e1c3;
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    border: 10px #a47829 double;
+    font-family: "font", serif;
+    font-size: 40px;
+    text-align: center;
+    visibility: hidden;
+}
+
+#makeSub label{
+    position: relative;
+    margin: 20px;
+    top: 20px;
+}
+
+#makeSub input{
+    font-family: "font", serif;
+}
+#makeSub select{
+    font-family: "font", serif;
+}

@@ -1,5 +1,24 @@
 let subMaker = document.getElementById("makeSub");
 let subjects = [];
+let moneyDisplay = document.getElementById("money");
+
+setInterval(function() {
+    // console.log(subjects);
+    let profit = subjects.map(function(subject){
+        return subject.profit;
+    }).reduce((partialSum, a) => partialSum + a, 0);
+
+    // console.log(profit);
+    // profit = profit.reduce((partialSum, a) => partialSum + a, 0);
+    // console.log(profit);
+
+    if (Number(moneyDisplay.innerText) + profit >= 0) {
+        moneyDisplay.innerText = `${profit + Number(moneyDisplay.innerText)}`;
+    } else {
+        moneyDisplay.innerText = `${0}`;
+    }
+}, 1000);
+
 for(let i = 1; i < 7; i++){
     let form = document.getElementById("f" + i);
     form.addEventListener("click", function (){
@@ -35,6 +54,7 @@ class Subject{
         this.diff = diff;
         this.hours = hours;
         this._rating = this.#calculateRating();
+        this._profit = Math.ceil((this._rating - 50) * 0.1);
     }
 
     #calculateRating() {
@@ -50,5 +70,9 @@ class Subject{
 
     get rating() {
         return this._rating;
+    }
+
+    get profit() {
+        return this._profit;
     }
 }

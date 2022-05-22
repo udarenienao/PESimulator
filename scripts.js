@@ -17,34 +17,31 @@ setInterval(function() {
     } else {
         moneyDisplay.innerText = `${0}`;
     }
-}, 1000);
+}, 2000);
 
 for(let i = 1; i < 7; i++){
     let form = document.getElementById("f" + i);
     form.addEventListener("click", function (){
         subMaker.style.visibility = "visible";
-        subMaker.addEventListener("submit", function (event) {
+        subMaker.addEventListener("submit", function handler(event) {
             event.preventDefault();
-            retrieveFromValue(form, i);
+            let name = subMaker.querySelector('[name="name"]').value;
+            let teacher = subMaker.querySelector('[name="select"] option:checked');
+            let diff = subMaker.querySelector('[name="difficulty"]');
+            let hours = subMaker.querySelector('[name="hours"]');
+            subjects[i] = new Subject(name, teacher, diff, hours);
+            let newForm = document.getElementById("f" + i + i);
+            form.style.visibility = "hidden";
+            newForm.style.visibility = "visible";
+            newForm.appendChild(document.createTextNode(name))
+            newForm.appendChild(document.createElement("br"));
+            newForm.appendChild(document.createTextNode(`Rating: ${subjects[i].rating}`));
+            subMaker.style.visibility = "hidden";
+            subMaker.removeEventListener("submit", handler)
         });
     });
 }
 
-function retrieveFromValue(form, from){
-
-    let name = subMaker.querySelector('[name="name"]').value;
-    let teacher = subMaker.querySelector('[name="select"] option:checked');
-    let diff = subMaker.querySelector('[name="difficulty"]');
-    let hours = subMaker.querySelector('[name="hours"]');
-    subjects[from] = new Subject(name, teacher, diff, hours);
-    let newForm = document.getElementById("f" + from + from);
-    form.style.visibility = "hidden";
-    newForm.style.visibility = "visible";
-    newForm.appendChild(document.createTextNode(name))
-    newForm.appendChild(document.createElement("br"));
-    newForm.appendChild(document.createTextNode(`Rating: ${subjects[from].rating}`));
-    subMaker.style.visibility = "hidden";
-}
 
 class Subject{
     constructor(name, teacher, diff, hours) {
@@ -54,7 +51,7 @@ class Subject{
         this.diff = diff;
         this.hours = hours;
         this._rating = this.#calculateRating();
-        this._profit = Math.ceil((this._rating - 50) * 0.1);
+        this._profit = Math.round((this._rating - 50) * 0.1);
     }
 
     #calculateRating() {

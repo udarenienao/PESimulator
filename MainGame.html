@@ -63,6 +63,33 @@
     </label>
 </form>
 
+<form id="updateSub">
+    <label>Название предмета:
+        <input type="text" name="name">
+    </label><br>
+    <label>Преподаватель:
+        <select name="select" size="1" >
+            <option value="s1" rating="3">Арсений Шур</option>
+            <option value="s2" rating="5">Юрий Окуловский</option>
+            <option value="s3" rating="4">Андрей Гейн</option>
+            <option value="s4" rating="2">Иван Баширов</option>
+            <option value="s5" rating="3">Ульяна Алексеева</option>
+        </select>
+    </label><br>
+    <label>Сложность предмета:
+        <input type="number" name="difficulty" min="0" max="10" step="1">
+    </label><br>
+    <label>Часы в неделю:
+        <input type="number" name="hours" min="0" max="10" step="1">
+    </label><br>
+    <label>
+        <input type="submit" id="update" value="Изменить предмет">
+    </label>
+    <label>
+        <input type="submit" id="delete" value="Удалить предмет">
+    </label>
+</form>
+
 <script src="scripts.js"></script>
 </body>
 </html>

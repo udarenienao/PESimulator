@@ -192,3 +192,30 @@ body {
 #makeSub select{
     font-family: "font", serif;
 }
+
+#updateSub{
+    width: 70%;
+    height: 70%;
+    background: #e5e1c3;
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    border: 10px #a47829 double;
+    font-family: "font", serif;
+    font-size: 40px;
+    text-align: center;
+    visibility: hidden;
+}
+
+#updateSub label{
+    position: relative;
+    margin: 20px;
+    top: 20px;
+}
+
+#updateSub input{
+    font-family: "font", serif;
+}
+#updateSub select{
+    font-family: "font", serif;
+}

@@ -10,6 +10,11 @@
     <div id="menu" onclick="window.location.href='menu.html'"><p>НАЗАД</p></div>
 </div>
 
+<div class="bank">
+    <div id="coin" class="account"></div>
+    <div id="money" class="account">0</div>
+</div>
+
 <div id="field">
     <div class = "free" id="f1"><p>?</p></div>
     <div class="done" id="f11"></div>
@@ -40,18 +45,18 @@
     </label><br>
     <label>Преподаватель:
         <select name="select" size="1" >
-            <option value="s1">Арсений Шур</option>
-            <option value="s2">Юрий Окуловский</option>
-            <option value="s3">Андрей Гейн</option>
-            <option value="s4">Иван Баширов</option>
-            <option value="s5">Ульяна Алексеева</option>
+            <option value="s1" rating="3">Арсений Шур</option>
+            <option value="s2" rating="5">Юрий Окуловский</option>
+            <option value="s3" rating="4">Андрей Гейн</option>
+            <option value="s4" rating="2">Иван Баширов</option>
+            <option value="s5" rating="3">Ульяна Алексеева</option>
         </select>
     </label><br>
     <label>Сложность предмета:
         <input type="number" name="difficulty" min="0" max="10" step="1">
     </label><br>
     <label>Часы в неделю:
-        <input type="number" name="hours">
+        <input type="number" name="hours" min="0" max="10" step="1">
     </label><br>
     <label>
         <input type="submit" value="Создать предмет!">

@@ -19,6 +19,30 @@ body {
 
 }
 
+.bank .account {
+    display: inline-block;
+}
+
+.bank {
+    position: absolute;
+    /*background-color: #7A0000;*/
+    right: 5px;
+    top: 5px;
+}
+
+
+#coin {
+    content:url(pictures/pinpng.com-gold-coins-png-1735690.png);
+    width: 40px;
+    height: 40px;
+}
+
+#money {
+    font-family: "font", serif;
+    text-align:center;
+    font-size:40px;
+}
+
 #menu{
     position:relative;
     bottom:330px;

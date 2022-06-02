@@ -8,7 +8,7 @@
 <body>
 <div id="buttons">
     <div class = "button" id="menu" onclick="window.location.href='menu.html'"><p>НАЗАД</p></div>
-    <div class = "button" id="earnMoney" onclick="window.location.href='lifegame.html'"><p>ЗАРАБОТАТЬ БАБЛИШКА</p></div>
+    <div class = "button" id="earnMoney"><p>ЗАРАБОТАТЬ БАБЛИШКА</p></div>
 </div>
 
 <div class="bank">
@@ -18,22 +18,22 @@
 
 <div id="field">
     <div class = "free" id="f1"><p>?</p></div>
-    <div class="done" id="f11"></div>
+    <div class= "done" id="f11"></div>
 
     <div class = "free" id="f2"><p>?</p></div>
     <div class="done" id="f22"></div>
 
     <div class = "free" id="f3"><p>?</p></div>
-    <div class="done" id="f33"></div>
+    <div class= "done" id="f33"></div>
 
     <div class = "free" id="f4"><p>?</p></div>
-    <div class="done" id="f44"></div>
+    <div class= "done" id="f44"></div>
 
     <div class = "free" id="f5"><p>?</p></div>
-    <div class="done" id="f55"></div>
+    <div class= "done" id="f55"></div>
 
     <div class = "free" id="f6"><p>?</p></div>
-    <div class="done" id="f66"></div>
+    <div class= "done" id="f66"></div>
 </div>
 
 <div id="fieldNE">
@@ -89,6 +89,17 @@
     <label>
         <input type="submit" id="delete" value="Удалить предмет">
     </label>
+</form>
+
+<form class = "life" id = "life">
+    <div>
+        <canvas id="c1" width="450" height="450"></canvas>
+    </div>
+    <div>
+        <p>Количество циклов: <span id="count">0</span></p>
+        <button id="startLife">Начать</button>
+        <button id="getCoins">Монетки</button>
+    </div>
 </form>
 
 <script src="scripts.js"></script>

@@ -57,7 +57,7 @@ body {
 
 
 #coin {
-    content:url(pictures/pinpng.com-gold-coins-png-1735690.png);
+    content:url(pictures/coin_picture.png);
     width: 40px;
     height: 40px;
 }
@@ -175,7 +175,7 @@ body {
     bottom: 6%;
     right: 4%;
 }
-.sub{
+.sub, .life{
     width: 70%;
     height: 70%;
     background: #e5e1c3;
@@ -183,10 +183,19 @@ body {
     top: 15%;
     left: 15%;
     border: 10px #a47829 double;
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
     font-family: "font", serif;
     font-size: 40px;
     text-align: center;
     visibility: hidden;
+}
+
+.life{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 20px;
 }
 
 .sub label{
@@ -198,5 +207,16 @@ body {
 .sub input, select{
     font-family: "font", serif;
 }
+
+.life > #c1, #startLife, #getCoins{
+    font-family: "font", serif;
+    font-size: 40px;
+}
+
+.life p{
+    top: 100px;
+}
+
+
 
 

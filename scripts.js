@@ -172,6 +172,17 @@ function startLife(){
     timer = setTimeout(startLife, 300);
 }
 
+function fpm(i){
+    if (i === 0)
+        return fieldHeight;
+    return i;
+}
+function fpp(i){
+    if (i === fieldHeight - 1)
+        return -1;
+    return i;
+}
+
 class Subject{
     constructor(name, teacher, diff, hours) {
         this.name = name;

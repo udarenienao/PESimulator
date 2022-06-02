@@ -90,6 +90,7 @@ canvas.addEventListener("click", function(event){
         if (mas[x][y] === 0) {
             mas[x][y] = 1;
             livesCount--;
+            document.getElementById("livesCount").textContent = livesCount;
             drawField();
         }
     }
@@ -102,6 +103,8 @@ document.getElementById('startLife').addEventListener("click", function(evt) {
 });
 document.getElementById('getCoins').addEventListener("click", function(evt) {
     evt.preventDefault();
+    drawField();
+    document.getElementById("livesCount").textContent = livesCount;
     gameStart = true;
 });
 
@@ -121,17 +124,25 @@ function goLife() {
         }
         mas[x][y] = 2;
     }
-    drawField();
+    drawGrid();
 }
 
-function drawField(){
-    ctx.clearRect(0, 0, cellWidth * fieldWidth, cellHeight * fieldHeight);
-    for (let i = 0; i < fieldHeight; i++) {
-        for (let j = 0; j < fieldWidth; j++) {
+function drawGrid() {
+    ctx.fillRect(1, 1, cellWidth * fieldWidth, 1);
+    ctx.fillRect(1, 1, 1, cellHeight * fieldHeight);
+    for (let i = 1; i <= fieldHeight; i++) {
+        for (let j = 1; j <= fieldWidth; j++) {
             ctx.fillRect(i, j * cellHeight, cellWidth * fieldWidth, 1);
             ctx.fillRect(i * cellWidth, j, 1, cellHeight * fieldHeight);
         }
     }
+    ctx.fillRect(1, fieldWidth * cellWidth - 1, cellWidth * fieldWidth, 1);
+    ctx.fillRect(fieldHeight * cellHeight - 1, 1, 1, cellHeight * fieldHeight);
+}
+
+function drawField(){
+    ctx.clearRect(0, 0, cellWidth * fieldWidth, cellHeight * fieldHeight);
+    drawGrid();
     for (let i = 0; i < fieldHeight; i++) {
         for (let j = 0; j < fieldWidth; j++) {
             if (mas[i][j] === 2) {
@@ -170,7 +181,7 @@ function startLife(){
     mas = mas2;
     drawField();
     count++;
-    document.getElementById('count').textContent = count;
+    document.getElementById('cyclesCount').textContent = count;
     timer = setTimeout(startLife, 300);
 }
 

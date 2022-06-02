@@ -1,0 +1,8 @@
+@font-face {
+    font-family: "font";
+    src: url("font.ttf");
+}
+
+body {
+    background: #90eadf;
+}

@@ -13,11 +13,36 @@ body {
     border-left: 200px solid transparent;
     border-right:300px solid transparent;
     border-top: 300px solid transparent;
-    border-radius: 0px;
+    border-radius: 0;
     position:absolute;
     margin:auto;
-
 }
+
+.button{
+    height:50px;
+    position:relative;
+    background:#006680;
+    text-align:center;
+    font-size:30px;
+    background-size: 1px 300%;
+    -webkit-transition:0.5s;
+    transition:0.5s;
+    color:orange;
+    font-family: "font", serif;
+    cursor:pointer;
+}
+
+.button p{
+    position:relative;
+    top: 25%;
+}
+.button:hover{
+    background:#7A0000;
+    color:white;
+    -webkit-transform:rotate(-1deg);
+    transform:rotate(-2deg);
+}
+
 
 .bank .account {
     display: inline-block;
@@ -44,32 +69,15 @@ body {
 }
 
 #menu{
-    position:relative;
     bottom:330px;
     right:200px;
-    height:50px;
     width:150px;
-    background:#006680;
-    text-align:center;
-    font-size:30px;
-    background-size: 1px 300%;
-    -webkit-transition:0.5s;
-    transition:0.5s;
-    color:orange;
-    font-family: "font", serif;
-    cursor:pointer;
 }
 
-#menu:hover {
-    background:#7A0000;
-    color:white;
-    -webkit-transform:rotate(-1deg);
-    transform:rotate(-2deg);
-}
-
-#menu p {
-    position:relative;
-    top: 25%;
+#earnMoney{
+    bottom:410px;
+    right:30px;
+    width:450px;
 }
 
 #field{
@@ -83,10 +91,12 @@ body {
     font-family: "font", serif;
     text-align: center;
 }
+
 #field p{
     text-align: center;
     position:relative;
 }
+
 .free{
     background: #b2b0b0;
     width: 28%;
@@ -165,8 +175,7 @@ body {
     bottom: 6%;
     right: 4%;
 }
-
-#makeSub{
+.sub{
     width: 70%;
     height: 70%;
     background: #e5e1c3;
@@ -180,42 +189,14 @@ body {
     visibility: hidden;
 }
 
-#makeSub label{
+.sub label{
     position: relative;
     margin: 20px;
     top: 20px;
 }
 
-#makeSub input{
-    font-family: "font", serif;
-}
-#makeSub select{
+.sub input, select{
     font-family: "font", serif;
 }
 
-#updateSub{
-    width: 70%;
-    height: 70%;
-    background: #e5e1c3;
-    position: absolute;
-    top: 15%;
-    left: 15%;
-    border: 10px #a47829 double;
-    font-family: "font", serif;
-    font-size: 40px;
-    text-align: center;
-    visibility: hidden;
-}
 
-#updateSub label{
-    position: relative;
-    margin: 20px;
-    top: 20px;
-}
-
-#updateSub input{
-    font-family: "font", serif;
-}
-#updateSub select{
-    font-family: "font", serif;
-}

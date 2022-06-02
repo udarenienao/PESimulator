@@ -3,6 +3,8 @@ let subUpdater = document.getElementById("updateSub");
 let subjects = [];
 let moneyDisplay = document.getElementById("money");
 let canvas = document.getElementById('c1');
+let coin = new Image();
+coin.src = 'pictures/coin_picture.png';
 let ctx = canvas.getContext('2d');
 let mas = [];
 let count = 0;
@@ -133,7 +135,7 @@ function drawField(){
     for (let i = 0; i < fieldHeight; i++) {
         for (let j = 0; j < fieldWidth; j++) {
             if (mas[i][j] === 2) {
-                ctx.drawImage(document.getElementById('c'), j * cellWidth + 1,
+                ctx.drawImage(coin, j * cellWidth + 1,
                     i * cellHeight + 1, cellWidth - 1, cellHeight - 1);
             } else if (mas[i][j] === 1) {
                 ctx.fillRect(j * cellHeight, i * cellWidth, cellWidth, cellHeight);

@@ -1,6 +1,7 @@
 let subMaker = document.getElementById("makeSub");
 let subjects = [];
 let moneyDisplay = document.getElementById("money");
+let buyer = document.getElementById("buySub");
 
 setInterval(function() {
     // console.log(subjects);
@@ -40,6 +41,41 @@ for(let i = 1; i < 7; i++){
             subMaker.removeEventListener("submit", handler)
         });
     });
+
+    if (i >= 2) {
+        let form = document.getElementById("block" + i);
+        form.addEventListener("click", function (){
+            let fade = document.getElementById("page-mask");
+            fade.style.visibility = "visible";
+            buyer.style.visibility = "visible";
+            buyer.addEventListener("submit", function handler(event) {
+                event.preventDefault();
+                if (document.activeElement.value === "Да!") {
+                    if (Number(moneyDisplay.innerText) - Number(form.innerText) >= 0) {
+                        moneyDisplay.innerText = `${Number(moneyDisplay.innerText) - Number(form.innerText)}`;
+                        form.style.visibility = "hidden";
+                        buyer.style.visibility = "hidden";
+                        fade.style.visibility = "hidden";
+                    } else {
+                        buyer.style.visibility = "hidden";
+                        let message = document.getElementById("sadMessage");
+                        message.style.visibility = "visible";
+                        message.addEventListener("submit", function handler(event) {
+                            event.preventDefault();
+                            fade.style.visibility = "hidden";
+                            message.style.visibility = "hidden";
+                            message.removeEventListener("submit", handler)
+                        })
+                    }
+                } else {
+                    buyer.style.visibility = "hidden";
+                    fade.style.visibility = "hidden";
+                }
+
+                buyer.removeEventListener("submit", handler);
+            });
+        });
+    }
 }
 
 

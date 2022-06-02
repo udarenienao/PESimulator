@@ -31,8 +31,8 @@ body {
 }
 
 
-#coin {
-    content:url(pictures/pinpng.com-gold-coins-png-1735690.png);
+#coin, .price {
+    content: url(pictures/pinpng.com-gold-coins-png-1735690.png);
     width: 40px;
     height: 40px;
 }
@@ -84,9 +84,10 @@ body {
     text-align: center;
 }
 #field p{
-    text-align: center;
+    align-content: center;
     position:relative;
 }
+
 .free{
     background: #b2b0b0;
     width: 28%;
@@ -166,6 +167,41 @@ body {
     right: 4%;
 }
 
+.blocked{
+    background: rgba(0, 0, 0, 0.8);
+    width: 28%;
+    height: 41%;
+    position: absolute;
+    cursor:pointer;
+    font-size: 40px;
+    color: white;
+}
+
+#block2{
+    top: 6%;
+    left: 36%;
+}
+
+#block3{
+    top: 6%;
+    right: 4%;
+}
+
+#block4{
+    bottom: 6%;
+    left: 4%;
+}
+
+#block5{
+    bottom: 6%;
+    left: 36%;
+}
+
+#block6{
+    bottom: 6%;
+    right: 4%;
+}
+
 #makeSub{
     width: 70%;
     height: 70%;
@@ -180,13 +216,38 @@ body {
     visibility: hidden;
 }
 
-#makeSub label{
+#buySub, #sadMessage {
+    width: 50vw;
+    height: 10vw;
+    background: #e5e1c3;
+    position: absolute;
+    margin-top: 20vw;
+    margin-left : 25vw;
+    justify-content: center;
+    border: 10px #a47829 double;
+    font-family: "font", serif;
+    font-size: 40px;
+    text-align: center;
+    visibility: hidden;
+}
+
+#page-mask {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+}
+
+#makeSub label, #buySub label, #sadMessage label {
     position: relative;
     margin: 20px;
     top: 20px;
 }
 
-#makeSub input{
+#makeSub input, #buySub input, #sadMessage input {
     font-family: "font", serif;
 }
 #makeSub select{

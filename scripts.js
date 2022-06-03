@@ -179,6 +179,7 @@ function startLife(){
                 mas2[i][j] = neighbors === 3 ? 1 : 0;
                 if (mas2[i][j] === 1) {
                     if (mas[i][j] === 2) {
+                        moneyCount--;
                         //тут должно быть прибавление монетки в игре
                     }
                 } else if (mas[i][j] === 2) {
@@ -187,7 +188,7 @@ function startLife(){
             }
         }
     }
-    if (JSON.stringify(mas) === JSON.stringify(mas2) || endGame) {
+    if (JSON.stringify(mas) === JSON.stringify(mas2) || endGame || moneyCount === 0) {
         endLife();
         return;
     }

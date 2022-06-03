@@ -16,6 +16,8 @@ let cellHeight = 450 / fieldHeight;
 let moneyCount = 5;
 let livesCount = 5;
 let gameStart = false;
+let endGame = false;
+let lifeStart = false;
 
 setInterval(function() {
     // console.log(subjects);
@@ -84,7 +86,7 @@ document.getElementById("earnMoney").addEventListener("click", function (){
 });
 
 canvas.addEventListener("click", function(event){
-    if (gameStart && livesCount !== 0) {
+    if (gameStart && livesCount !== 0 && !lifeStart) {
         let x = Math.floor(event.offsetY / cellHeight);
         let y = Math.floor(event.offsetX / cellWidth);
         if (mas[x][y] === 0) {
@@ -98,8 +100,8 @@ canvas.addEventListener("click", function(event){
 
 document.getElementById('startLife').addEventListener("click", function(evt) {
     evt.preventDefault();
+    lifeStart = true;
     startLife();
-
 });
 document.getElementById('getCoins').addEventListener("click", function(evt) {
     evt.preventDefault();
@@ -155,6 +157,13 @@ function drawField(){
     }
 }
 
+function endLife() {
+    //тут должен быть выход в основное меню
+    //ну и эту функцию игрок должен мочь вызывать сам по кнопке
+    //точнее наверно лучше чтобы кнопка кидала какой-то флаг в true
+    //сделал флаг endGame
+}
+
 function startLife(){
     let mas2 = [];
     for (let i = 0; i < fieldHeight; i++){
@@ -177,6 +186,10 @@ function startLife(){
                 }
             }
         }
+    }
+    if (JSON.stringify(mas) === JSON.stringify(mas2) || endGame) {
+        endLife();
+        return;
     }
     mas = mas2;
     drawField();

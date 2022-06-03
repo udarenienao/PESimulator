@@ -56,7 +56,7 @@ body {
 }
 
 
-#coin {
+#coin, .price {
     content:url(pictures/coin_picture.png);
     width: 40px;
     height: 40px;
@@ -176,12 +176,12 @@ body {
     right: 4%;
 }
 .sub, .life{
-    width: 70%;
-    height: 70%;
+    width: 80%;
+    height: 80%;
     background: #e5e1c3;
     position: absolute;
-    top: 15%;
-    left: 15%;
+    top: 10%;
+    left: 10%;
     border: 10px #a47829 double;
     box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
     font-family: "font", serif;
@@ -190,31 +190,100 @@ body {
     visibility: hidden;
 }
 
+#buySub, #sadMessage {
+    width: 50vw;
+    height: 10vw;
+    background: #e5e1c3;
+    position: absolute;
+    margin-top: 20vw;
+    margin-left : 25vw;
+    justify-content: center;
+    border: 10px #a47829 double;
+    font-family: "font", serif;
+    font-size: 40px;
+    text-align: center;
+    visibility: hidden;
+}
+
+#page-mask {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+}
+
 .life{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     box-sizing: border-box;
-    padding: 20px;
+    padding: 3.5%;
 }
 
-.sub label{
+.sub label, #buySub label, #sadMessage label{
     position: relative;
     margin: 20px;
     top: 20px;
 }
 
-.sub input, select{
+.sub input, select, #buySub input, #sadMessage input{
     font-family: "font", serif;
 }
 
-.life > #c1, #startLife, #getCoins{
+.life > p, #close, #c1, #startLife, #getCoins{
     font-family: "font", serif;
     font-size: 40px;
 }
 
-.life p{
-    top: 100px;
+.life > #close{
+    width: 41px;
+    height: 41px;
+    background: #006680;
+    color: orange;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.blocked{
+    background: rgba(0, 0, 0, 0.8);
+    width: 28%;
+    height: 41%;
+    position: absolute;
+    cursor:pointer;
+    font-size: 40px;
+    color: white;
+}
+
+#block2{
+    top: 6%;
+    left: 36%;
+}
+
+#block3{
+    top: 6%;
+    right: 4%;
+}
+
+#block4{
+    bottom: 6%;
+    left: 4%;
+}
+
+#block5{
+    bottom: 6%;
+    left: 36%;
+}
+
+#block6{
+    bottom: 6%;
+    right: 4%;
 }
 
 

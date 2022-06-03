@@ -18,6 +18,7 @@ let livesCount = 5;
 let gameStart = false;
 let endGame = false;
 let lifeStart = false;
+let buyer = document.getElementById("buySub");
 
 setInterval(function() {
     // console.log(subjects);
@@ -77,10 +78,43 @@ for(let i = 1; i < 7; i++){
             subMaker.removeEventListener("submit", handler)
         });
     });
+    if (i >= 2) {
+        let form = document.getElementById("block" + i);
+        form.addEventListener("click", function () {
+            let fade = document.getElementById("page-mask");
+            fade.style.visibility = "visible";
+            buyer.style.visibility = "visible";
+            buyer.addEventListener("submit", function handler(event) {
+                event.preventDefault();
+                if (document.activeElement.value === "Да!") {
+                    if (Number(moneyDisplay.innerText) - Number(form.innerText) >= 0) {
+                        moneyDisplay.innerText = `${Number(moneyDisplay.innerText) - Number(form.innerText)}`;
+                        form.style.visibility = "hidden";
+                        buyer.style.visibility = "hidden";
+                        fade.style.visibility = "hidden";
+                    } else {
+                        buyer.style.visibility = "hidden";
+                        let message = document.getElementById("sadMessage");
+                        message.style.visibility = "visible";
+                        message.addEventListener("submit", function handler(event) {
+                            event.preventDefault();
+                            fade.style.visibility = "hidden";
+                            message.style.visibility = "hidden";
+                            message.removeEventListener("submit", handler)
+                        })
+                    }
+                } else {
+                    buyer.style.visibility = "hidden";
+                    fade.style.visibility = "hidden";
+                }
+                buyer.removeEventListener("submit", handler);
+            });
+        });
+    }
 }
+let life = document.getElementById("life");
 
 document.getElementById("earnMoney").addEventListener("click", function (){
-    let life = document.getElementById("life");
     life.style.visibility = "visible";
     goLife();
 });
@@ -96,6 +130,12 @@ canvas.addEventListener("click", function(event){
             drawField();
         }
     }
+});
+
+document.getElementById('close').addEventListener("click", function (evt) {
+    evt.preventDefault();
+    life.style.visibility = "hidden";
+    endLife();
 });
 
 document.getElementById('startLife').addEventListener("click", function(evt) {
@@ -158,10 +198,13 @@ function drawField(){
 }
 
 function endLife() {
-    //тут должен быть выход в основное меню
-    //ну и эту функцию игрок должен мочь вызывать сам по кнопке
-    //точнее наверно лучше чтобы кнопка кидала какой-то флаг в true
-    //сделал флаг endGame
+    ctx.clearRect(0, 0, cellWidth * fieldWidth, cellHeight * fieldHeight);
+    drawGrid();
+    document.getElementById('cyclesCount').textContent = count = 0;
+    gameStart = false;
+    lifeStart = false;
+    moneyCount = 5;
+    livesCount = 5;
 }
 
 function startLife(){
@@ -180,7 +223,7 @@ function startLife(){
                 if (mas2[i][j] === 1) {
                     if (mas[i][j] === 2) {
                         moneyCount--;
-                        //тут должно быть прибавление монетки в игре
+                        moneyDisplay.innerText = `${1 + Number(moneyDisplay.innerText)}`;
                     }
                 } else if (mas[i][j] === 2) {
                     mas2[i][j] = 2;
@@ -249,3 +292,4 @@ class Subject{
         return this._profit;
     }
 }
+

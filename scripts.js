@@ -137,22 +137,28 @@ document.getElementById('close').addEventListener("click", function (evt) {
     life.style.visibility = "hidden";
     endLife();
 });
-
-document.getElementById('startLife').addEventListener("click", function(evt) {
+let startLifeButton = document.getElementById('startLife');
+let endGameButton = document.getElementById("end");
+let getCoinsButton = document.getElementById('getCoins');
+startLifeButton.addEventListener("click", function(evt) {
     evt.preventDefault();
+    endGameButton.style.display = "inline";
+    startLifeButton.style.display = "none";
     lifeStart = true;
     startLife();
 });
-document.getElementById('getCoins').addEventListener("click", function(evt) {
+getCoinsButton.addEventListener("click", function(evt) {
     evt.preventDefault();
+    startLifeButton.style.display = "inline";
+    getCoinsButton.style.display = "none";
     drawField();
     document.getElementById("livesCount").textContent = livesCount;
     gameStart = true;
 });
-document.getElementById("end").addEventListener("click", function (evt) {
+endGameButton.addEventListener("click", function (evt) {
     evt.preventDefault();
     endLife();
-})
+});
 
 function goLife() {
     for (let i = 0; i < fieldHeight; i++) {
@@ -202,6 +208,9 @@ function drawField(){
 }
 
 function endLife() {
+    getCoinsButton.style.display = "inline";
+    endGameButton.style.display = "none";
+    startLifeButton.style.display = "none";
     ctx.clearRect(0, 0, cellWidth * fieldWidth, cellHeight * fieldHeight);
     drawGrid();
     document.getElementById('cyclesCount').textContent = count = 0;
@@ -239,7 +248,6 @@ function startLife(){
         }
     }
     if (JSON.stringify(mas) === JSON.stringify(mas2) || endGame || moneyCount === 0) {
-        endLife();
         return;
     }
     mas = mas2;

@@ -233,9 +233,13 @@ body {
     font-family: "font", serif;
 }
 
-.life > p, #close, #c1, #startLife, #getCoins{
+.life > p, #close, #c1, #startLife, #getCoins, #end{
     font-family: "font", serif;
     font-size: 40px;
+}
+
+.life #startLife, #end {
+    display: none;
 }
 
 .life > #close{

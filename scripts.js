@@ -149,6 +149,10 @@ document.getElementById('getCoins').addEventListener("click", function(evt) {
     document.getElementById("livesCount").textContent = livesCount;
     gameStart = true;
 });
+document.getElementById("end").addEventListener("click", function (evt) {
+    evt.preventDefault();
+    endLife();
+})
 
 function goLife() {
     for (let i = 0; i < fieldHeight; i++) {
@@ -203,8 +207,11 @@ function endLife() {
     document.getElementById('cyclesCount').textContent = count = 0;
     gameStart = false;
     lifeStart = false;
+    endGame = false;
+    mas = [];
     moneyCount = 5;
     livesCount = 5;
+    goLife();
 }
 
 function startLife(){

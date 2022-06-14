@@ -1,0 +1,48 @@
+@font-face {
+    font-family: "font";
+    src: url("font.ttf");
+}
+
+body {
+    background: #90eadf;
+}
+
+#menu {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    align-content: flex-end;
+    align-self: flex-end;
+    height: 90vh;
+}
+
+.button{
+    position: relative;
+    margin: 20px;
+    width: 500px;
+    -webkit-transition:0.5s;
+    transition:0.5s;
+    font-size:30px;
+    /*background-size: 1px 300%;*/
+    font-family: "font", serif;
+    color:orange;
+    text-align: center;
+    background-color: #006680;
+}
+
+.button:hover{
+    background:#7A0000;
+    color:white;
+    -webkit-transform:rotate(-1deg);
+    transform:rotate(-2deg);
+}
+
+
+.Image{
+    position: absolute;
+    margin: auto;
+    width: 80vw;
+    height: 70vh;
+    right: 10%;
+    top: 5%
+}

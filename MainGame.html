@@ -7,7 +7,8 @@
 </head>
 <body>
 <div id="buttons">
-    <div id="menu" onclick="window.location.href='menu.html'"><p>НАЗАД</p></div>
+    <div class = "button" id="menu" onclick="window.location.href='menu.html'"><p>НАЗАД</p></div>
+    <div class = "button" id="earnMoney"><p>ЗАРАБОТАТЬ БАБЛИШКА</p></div>
 </div>
 
 <div class="bank">
@@ -15,60 +16,57 @@
     <div id="money" class="account">400</div>
 </div>
 
-<div id="field">
-    <div class = "free" id="f1"><p>?</p></div>
-    <div class="done" id="f11"></div>
-
-    <div class = "free" id="f2"><p>?</p></div>
-    <div class="blocked" id="block2"><p>
+<div class = "field">
+    <div class = "free frame first" id="f1"><p>?</p></div>
+    <div class="done frame first" id="f11"></div>
+    
+    <div class = "free frame second" id="f2"><p>?</p></div>
+    <div class="blocked frame second" id="block2"><p>
         100
-        <img class="price" src="pictures/pinpng.com-gold-coins-png-1735690.png" alt="coin">
+        <img class="price" src="pictures/coin_picture.png" alt="coin">
     </p>
     </div>
-    <div class="done" id="f22"></div>
+    <div class="done frame second" id="f22"></div>
 
-    <div class = "free" id="f3"><p>?</p></div>
-    <div class="blocked" id="block3"><p>
+    <div class = "free frame third" id="f3"><p>?</p></div>
+    <div class="blocked frame third" id="block3"><p>
         150
-        <img class="price" src="pictures/pinpng.com-gold-coins-png-1735690.png" alt="coin">
+        <img class="price" src="pictures/coin_picture.png" alt="coin">
     </p>
     </div>
-    <div class="done" id="f33"></div>
+    <div class="done frame third" id="f33"></div>
 
-    <div class = "free" id="f4"><p>?</p></div>
-    <div class="blocked" id="block4"><p>
+    <div class = "free frame fourth" id="f4"><p>?</p></div>
+    <div class="blocked frame fourth" id="block4"><p>
         200
-        <img class="price" src="pictures/pinpng.com-gold-coins-png-1735690.png" alt="coin">
+        <img class="price" src="pictures/coin_picture.png" alt="coin">
     </p>
     </div>
-    <div class="done" id="f44"></div>
+    <div class="done frame fourth" id="f44"></div>
 
-    <div class = "free" id="f5"><p>?</p></div>
-    <div class="blocked" id="block5"><p>
+    <div class = "free frame fifth" id="f5"><p>?</p></div>
+    <div class="blocked frame fifth" id="block5"><p>
         250
-        <img class="price" src="pictures/pinpng.com-gold-coins-png-1735690.png" alt="coin">
+        <img class="price" src="pictures/coin_picture.png" alt="coin">
     </p>
     </div>
-    <div class="done" id="f55"></div>
+    <div class="done frame fifth" id="f55"></div>
 
-    <div class = "free" id="f6"><p>?</p></div>
-    <div class="blocked" id="block6"><p>
+    <div class = "free frame sixth" id="f6"><p>?</p></div>
+    <div class="blocked frame sixth" id="block6"><p>
         300
-        <img class="price" src="pictures/pinpng.com-gold-coins-png-1735690.png" alt="coin">
+        <img class="price" src="pictures/coin_picture.png" alt="coin">
     </p>
     </div>
-    <div class="done" id="f66"></div>
+    <div class="done frame sixth" id="f66"></div>
 </div>
 
-<div id="fieldNE">
 
-</div>
-
-<form id="makeSub">
-    <label>Название предмета:
+<form class = "sub" id="makeSub">
+    <label class = "name">Название предмета:
         <input type="text" name="name">
     </label><br>
-    <label>Преподаватель:
+    <label class = "teach">Преподаватель:
         <select name="select" size="1" >
             <option value="s1" rating="3">Арсений Шур</option>
             <option value="s2" rating="5">Юрий Окуловский</option>
@@ -77,15 +75,55 @@
             <option value="s5" rating="3">Ульяна Алексеева</option>
         </select>
     </label><br>
-    <label>Сложность предмета:
-        <input type="number" name="difficulty" min="0" max="10" step="1">
+    <label class="difficulty">Сложность предмета:
+        <input type = "range" class = "range" name="difficulty" min="0" max="10" onchange="document.getElementById('mRV1').value=value">
+        <output id="mRV1">5</output>
     </label><br>
-    <label>Часы в неделю:
-        <input type="number" name="hours" min="0" max="10" step="1">
+    <label class="hours">Часы в неделю:
+        <input type = "range" class = "range" name="hours" min="0" max="10" onchange="document.getElementById('mRV2').value=value">
+        <output id="mRV2">5</output>
     </label><br>
-    <label>
-        <input type="submit" value="Создать предмет!">
-    </label>
+        <input type="submit" id = "create" value="Создать предмет!">
+</form>
+
+<form class = "sub" id= "updateSub">
+    <label class = "name">Название предмета:
+        <input type="text" name="name">
+    </label><br>
+    <label class = "teach">Преподаватель:
+        <select name="select" size="1" >
+            <option value="s1" rating="3">Арсений Шур</option>
+            <option value="s2" rating="5">Юрий Окуловский</option>
+            <option value="s3" rating="4">Андрей Гейн</option>
+            <option value="s4" rating="5">Иван Баширов</option>
+            <option value="s5" rating="3">Ульяна Алексеева</option>
+        </select>
+    </label><br>
+    <label class="difficulty">Сложность предмета:
+        <input type = "range" class = "range" name="difficulty" min="0" max="10" onchange="document.getElementById('uRV1').value=value">
+        <output id="uRV1">5</output>
+
+    </label><br>
+    <label class="hours">Часы в неделю:
+        <input type = "range" class = "range" name="hours" min="0" max="10" onchange="document.getElementById('uRV2').value=value">
+        <output id="uRV2">5</output>
+    </label><br>
+    <input type="submit" id="update" value="Изменить предмет">
+    <input type="submit" id="delete" value="Удалить предмет">
+</form>
+
+<form class = "life" id = "life">
+    <button id="close">X</button>
+    <div>
+        <canvas id="c1" width="450" height="450"></canvas>
+    </div>
+    <div>
+        <p>Количество циклов: <span id="cyclesCount">0</span></p>
+        <p>Количество жизней: <span id="livesCount">0</span></p>
+        <button id="startLife">Начать</button>
+        <button id="getCoins">Монетки</button>
+        <button id="end">Закончить игру</button>
+    </div>
 </form>
 
 <div id="page-mask"></div>
@@ -104,6 +142,20 @@
         <input type="submit" value="Ок">
     </label>
 </form>
+
+<datalist id="rangeList">
+    <option value="0">0</option>
+    <option value="1">
+    <option value="2">
+    <option value="3">
+    <option value="4">
+    <option value="5" label="5">
+    <option value="6">
+    <option value="7">
+    <option value="8">
+    <option value="9">
+    <option value="10" label="10">
+</datalist>
 
 <script src="scripts.js"></script>
 </body>

@@ -27,7 +27,11 @@ let dict = {"soft": {"1": 1, "2": 2, "3": 3},
 
 setInterval(function() {
     // console.log(subjects);
-    let profit = subjects.map(function(subject){
+
+    let profit = subjects.map(function(subject) {
+        if (Math.random() > 0.33) {
+            subject.profit -= 1;
+        }
         return subject.profit;
     }).reduce((partialSum, a) => partialSum + a, 0);
 
@@ -42,24 +46,43 @@ setInterval(function() {
     }
 }, 2000);
 
+function updateCurseRating(subjectNumber, money, plusRating, handler) {
+    if (Number(moneyDisplay.innerText) - 25 >= 0) {
+        moneyDisplay.innerText = `${Number(moneyDisplay.innerText) - money}`;
+        subjects[subjectNumber].rating = Math.min(100, subjects[subjectNumber].rating + plusRating);
+    } else {
+        let message = document.getElementById("sadMessage");
+        message.style.visibility = "visible";
+        message.addEventListener("submit", function handler2(event) {
+            event.preventDefault();
+            message.style.visibility = "hidden";
+            message.removeEventListener("submit", handler2);
+            handler();
+        });
+    }
+}
+
 function makeNewForm(newForm, i) {
     newForm.style.visibility = "visible";
     newForm.textContent = "";
     newForm.appendChild(document.createTextNode(subjects[i].name));
     newForm.appendChild(document.createElement("br"));
     newForm.appendChild(document.createTextNode(`Rating: ${subjects[i].rating}`));
-    newForm.addEventListener("click", function() {
+    newForm.addEventListener("click", function handler() {
         subUpdater.style.visibility = "visible";
-        subUpdater.addEventListener("submit", function handler(event) {
+        subUpdater.addEventListener("submit", function handler1(event) {
             if (event.submitter.id === "delete") {
-                
+                //idk
+            } else if (event.submitter.id === "update1") {
+                updateCurseRating(i, 50, 10, handler);
+            } else if (event.submitter.id === "update2") {
+                updateCurseRating(i, 100, 25, handler);
+            } else if (event.submitter.id === "update3") {
+                updateCurseRating(i, 150, 40, handler);
+            } else if (event.submitter.id === "no") {
+
             }
             event.preventDefault();
-            let name = subUpdater.querySelector('[name="name"]').value;
-            let teacher = subUpdater.querySelector('[name="select"] option:checked');
-            let diff = subUpdater.querySelector('[name="difficulty"]');
-            let hours = subUpdater.querySelector('[name="hours"]');
-            subjects[i].updateCourse(name, teacher, diff, hours);
             makeNewForm(document.getElementById("f" + i + i), i);
             subUpdater.style.visibility = "hidden";
         })
@@ -67,8 +90,8 @@ function makeNewForm(newForm, i) {
 }
 
 
-for(let i = 1; i < 7; i++){
-    let form = document.getElementById("f" + i);
+function makeNewSubject(subjectNumber) {
+    let form = document.getElementById("f" + subjectNumber);
     form.addEventListener("click", function () {
         subChoose.style.visibility = "visible";
         subChoose.addEventListener("submit", function handler(event) {
@@ -90,8 +113,8 @@ for(let i = 1; i < 7; i++){
                 let teacherRating = dict[event.submitter.id][teacherName];
                 let diff = subMaker.querySelector('[name="difficulty"]');
                 let hours = subMaker.querySelector('[name="hours"]');
-                subjects[i] = new Subject(name, teacherName, teacherRating, diff, hours);
-                makeNewForm(document.getElementById("f" + i + i), i);
+                subjects[subjectNumber] = new Subject(name, teacherName, teacherRating, diff, hours);
+                makeNewForm(document.getElementById("f" + subjectNumber + subjectNumber), subjectNumber);
                 form.style.visibility = "hidden";
                 subMaker.style.visibility = "hidden";
                 subMaker.getElementsByClassName("teach")[0].removeChild(child);
@@ -99,7 +122,10 @@ for(let i = 1; i < 7; i++){
             });
         });
     });
+}
 
+for(let i = 1; i < 7; i++){
+    makeNewSubject(i);
     if (i >= 2) {
         let form = document.getElementById("block" + i);
         form.addEventListener("click", function () {
@@ -123,7 +149,7 @@ for(let i = 1; i < 7; i++){
                             fade.style.visibility = "hidden";
                             message.style.visibility = "hidden";
                             message.removeEventListener("submit", handler)
-                        })
+                        });
                     }
                 } else {
                     buyer.style.visibility = "hidden";

@@ -19,15 +19,18 @@ let livesCount = 5;
 let gameStart = false;
 let endGame = false;
 let lifeStart = false;
+let pushButtonLife = false;
 let buyer = document.getElementById("buySub");
-let dict = {"soft": {"1": 1, "2": 2, "3": 3},
-    "math": {"4": 4, "5": 5},
-    "prog": {"6": 1}};
+let teachers = {"soft": {"Алексей Кулаков": 2, "Евгения Панасова": 3, "Константин Гейн": 5},
+    "math": {"Дмитрий Хлопин": 3, "Александр Гейн": 5, "Семён Трифочкин": 1},
+    "prog": {"Андрей Гейн": 5, "Семён Трифочкин": 1, "Семён Стихин": 5, "Вячеслав Копейцев": 1}};
 
 
 setInterval(function() {
     // console.log(subjects);
-
+    if (pushButtonLife) {
+        return;
+    }
     for (let i = 0; i < subjects.length; i++) {
         if (Math.random() < 0.33) {
             subjects[i].updateRating(-1);
@@ -47,7 +50,7 @@ setInterval(function() {
     } else {
         moneyDisplay.innerText = `${0}`;
     }
-}, 2000);
+}, 500);
 
 function updateCurseRating(subjectNumber, money, plusRating, handler) {
     if (Number(moneyDisplay.innerText) - money >= 0) {
@@ -114,7 +117,7 @@ function makeNewSubject(subjectNumber) {
             subChoose.style.visibility = "hidden";
             subMaker.style.visibility = "visible";
             let child = document.createElement("select");
-            let subTeachers = dict[event.submitter.id];
+            let subTeachers = teachers[event.submitter.id];
             Object.keys(subTeachers).forEach(function(element) {
                 let childChild = document.createElement("option");
                 childChild.textContent = element;
@@ -180,6 +183,7 @@ let life = document.getElementById("life");
 
 document.getElementById("earnMoney").addEventListener("click", function (){
     life.style.visibility = "visible";
+    pushButtonLife = true;
     goLife();
 });
 
@@ -199,6 +203,7 @@ canvas.addEventListener("click", function(event){
 document.getElementById('close').addEventListener("click", function (evt) {
     evt.preventDefault();
     life.style.visibility = "hidden";
+    pushButtonLife = false;
     endLife();
 });
 let startLifeButton = document.getElementById('startLife');

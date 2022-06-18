@@ -146,7 +146,7 @@ body {
     color: white;
 }
 
-.sub, .life, .subjects{
+.sub, .life, .subjects, .update{
     width: 80%;
     height: 80%;
     background: #e5e1c3;
@@ -237,6 +237,14 @@ body {
     height: 7%;
 }
 
+.update input, .subjects input{
+    font-family: "font", serif;
+    font-size: larger;
+    background: #e5e1c3;
+    border: #a47829 double;
+    cursor:pointer;
+    height: 100%;
+}
 
 .life > p, #close, #c1, #startLife, #getCoins, #end{
     font-family: "font", serif;
@@ -345,7 +353,11 @@ input[type=range]:focus::-ms-fill-upper {
     background: #006680;
 }
 
-
+.update, .subjects{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
 
 
 

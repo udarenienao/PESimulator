@@ -217,6 +217,10 @@ body {
     position: relative;
 }
 
+#buySub label, #sadMessage label{
+    top: 30%;
+}
+
 .sub .name{
     top: 10%;
 }
@@ -235,6 +239,10 @@ body {
     border: #a47829 double;
     cursor:pointer;
     height: 7%;
+}
+
+#buySub input, #sadMessage input{
+    height: 15%;
 }
 
 .update input, .subjects input{

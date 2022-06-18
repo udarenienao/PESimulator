@@ -50,6 +50,16 @@ setInterval(function() {
     } else {
         moneyDisplay.innerText = `${0}`;
     }
+
+    if (Subject.amount >= 6){
+        setTimeout(function() {
+            if (Math.round(Subject.average/6) >=75){
+                window.location.href='Final.html';
+            }else{
+                window.location.href='BadFinal.html';
+            }
+        }, 2000);
+    }
 }, 500);
 
 function updateCurseRating(subjectNumber, money, plusRating, handler) {
@@ -337,6 +347,8 @@ function fpp(i){
 }
 
 class Subject{
+    static amount = 0;
+    static average = 0;
     constructor(name, teacherName, teacherRating, diff, hours) {
         this.name = name;
         this.teacherName = teacherName;
@@ -345,6 +357,8 @@ class Subject{
         this.hours = hours;
         this._rating = this.#calculateRating.bind(this)();
         this._profit = Math.round((this._rating - 50) * 0.1);
+        Subject.amount += 1;
+        Subject.average += this._rating;
     }
 
     #calculateRating() {
@@ -359,7 +373,9 @@ class Subject{
     }
 
     updateRating(plusRating) {
+        Subject.average -= this._rating;
         this._rating = Math.max(Math.min(this._rating + plusRating, 100), 0);
+        Subject.average += this._rating;
         this._profit = Math.round((this._rating - 50) * 0.1);
     }
 

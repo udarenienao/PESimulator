@@ -28,10 +28,13 @@ let dict = {"soft": {"1": 1, "2": 2, "3": 3},
 setInterval(function() {
     // console.log(subjects);
 
-    let profit = subjects.map(function(subject) {
-        if (Math.random() > 0.33) {
-            subject.profit -= 1;
+    for (let i = 0; i < subjects.length; i++) {
+        if (Math.random() < 0.33) {
+            subjects[i].updateRating(-1);
+            updateForm(i);
         }
+    }
+    let profit = subjects.map(function(subject) {
         return subject.profit;
     }).reduce((partialSum, a) => partialSum + a, 0);
 
@@ -47,9 +50,10 @@ setInterval(function() {
 }, 2000);
 
 function updateCurseRating(subjectNumber, money, plusRating, handler) {
-    if (Number(moneyDisplay.innerText) - 25 >= 0) {
+    if (Number(moneyDisplay.innerText) - money >= 0) {
         moneyDisplay.innerText = `${Number(moneyDisplay.innerText) - money}`;
-        subjects[subjectNumber].rating = Math.min(100, subjects[subjectNumber].rating + plusRating);
+        subjects[subjectNumber].updateRating(plusRating);
+
     } else {
         let message = document.getElementById("sadMessage");
         message.style.visibility = "visible";
@@ -62,13 +66,20 @@ function updateCurseRating(subjectNumber, money, plusRating, handler) {
     }
 }
 
+
+function updateForm(i) {
+    let form = document.getElementById("f" + i + i);
+    form.textContent = "";
+    form.appendChild(document.createTextNode(subjects[i].name));
+    form.appendChild(document.createElement("br"));
+    form.appendChild(document.createTextNode(`Rating: ${subjects[i].rating}`));
+}
+
 function makeNewForm(newForm, i) {
     newForm.style.visibility = "visible";
-    newForm.textContent = "";
-    newForm.appendChild(document.createTextNode(subjects[i].name));
-    newForm.appendChild(document.createElement("br"));
-    newForm.appendChild(document.createTextNode(`Rating: ${subjects[i].rating}`));
-    newForm.addEventListener("click", function handler() {
+    updateForm(i);
+    newForm.addEventListener("click", function handler(event) {
+        event.preventDefault();
         subUpdater.style.visibility = "visible";
         subUpdater.addEventListener("submit", function handler1(event) {
             if (event.submitter.id === "delete") {
@@ -83,9 +94,12 @@ function makeNewForm(newForm, i) {
 
             }
             event.preventDefault();
+
             makeNewForm(document.getElementById("f" + i + i), i);
             subUpdater.style.visibility = "hidden";
-        })
+            subUpdater.removeEventListener("submit", handler1);
+        });
+        newForm.removeEventListener("click", handler);
     })
 }
 
@@ -100,7 +114,8 @@ function makeNewSubject(subjectNumber) {
             subChoose.style.visibility = "hidden";
             subMaker.style.visibility = "visible";
             let child = document.createElement("select");
-            Object.keys(dict[event.submitter.id]).forEach(function(element) {
+            let subTeachers = dict[event.submitter.id];
+            Object.keys(subTeachers).forEach(function(element) {
                 let childChild = document.createElement("option");
                 childChild.textContent = element;
                 child.appendChild(childChild);
@@ -109,8 +124,8 @@ function makeNewSubject(subjectNumber) {
             subMaker.addEventListener("submit", function handler1(event1) {
                 event1.preventDefault();
                 let name = subMaker.querySelector('[name="name"]').value;
-                let teacherName = subMaker.querySelector('[name="select"] option:checked');
-                let teacherRating = dict[event.submitter.id][teacherName];
+                let teacherName = subMaker.querySelector('[class="teach"] option:checked').value;
+                let teacherRating = subTeachers[teacherName];
                 let diff = subMaker.querySelector('[name="difficulty"]');
                 let hours = subMaker.querySelector('[name="hours"]');
                 subjects[subjectNumber] = new Subject(name, teacherName, teacherRating, diff, hours);
@@ -277,7 +292,6 @@ function startLife(){
     for (let i = 0; i < fieldHeight; i++){
         mas2[i] = [];
         for (let j = 0; j < fieldWidth; j++){
-            console.log(mas);
             let neighbors = mas[fpm(i) - 1][j] % 2 + mas[i][fpp(j) + 1] % 2 + mas[fpp(i) + 1][j] % 2 +
                 mas[i][fpm(j) - 1] % 2 + mas[fpm(i) - 1][fpp(j) + 1] % 2 + mas[fpp(i) + 1][fpp(j) + 1] % 2 +
                 mas[fpp(i) + 1][fpm(j) - 1] % 2 + mas[fpm(i) - 1][fpm(j) - 1] % 2;
@@ -324,25 +338,24 @@ class Subject{
         this.teacherRating = teacherRating;
         this.diff = diff;
         this.hours = hours;
-        this._rating = this.#calculateRating();
+        this._rating = this.#calculateRating.bind(this)();
         this._profit = Math.round((this._rating - 50) * 0.1);
     }
 
     #calculateRating() {
         let worstDiffCond = Math.abs(this.diff.getAttribute('max') * 0.7 -
             this.diff.getAttribute('min'));
-        console.log(worstDiffCond);
         let worstHoursCond = Math.max(4 - this.hours.getAttribute('min'),
             Math.abs(4 - this.hours.getAttribute('max')));
-        console.log(worstHoursCond);
         let worstCondition = worstHoursCond + worstDiffCond + 5;
-        console.log(worstCondition);
         let currDiffCond = Math.abs(this.diff.getAttribute('max') * 0.7 - this.diff.value);
-        console.log(currDiffCond);
         let currHoursCond = Math.abs(4 - this.hours.value);
-        console.log(currHoursCond);
-        console.log(this);
         return Math.round(100 - (currDiffCond + currHoursCond + 5 - this.teacherRating) / (worstCondition * 0.01));
+    }
+
+    updateRating(plusRating) {
+        this._rating = Math.max(Math.min(this._rating + plusRating, 100), 0);
+        this._profit = Math.round((this._rating - 50) * 0.1);
     }
 
     get rating() {

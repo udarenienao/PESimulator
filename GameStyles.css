@@ -13,18 +13,14 @@ body {
     border-left: 200px solid transparent;
     border-right:300px solid transparent;
     border-top: 300px solid transparent;
-    border-radius: 0px;
+    border-radius: 0;
     position:absolute;
     margin:auto;
-
 }
 
-#menu{
-    position:relative;
-    bottom:330px;
-    right:200px;
+.button{
     height:50px;
-    width:150px;
+    position:relative;
     background:#006680;
     text-align:center;
     font-size:30px;
@@ -36,19 +32,55 @@ body {
     cursor:pointer;
 }
 
-#menu:hover {
+.button p{
+    position:relative;
+    top: 25%;
+}
+.button:hover{
     background:#7A0000;
     color:white;
     -webkit-transform:rotate(-1deg);
     transform:rotate(-2deg);
 }
 
-#menu p {
-    position:relative;
-    top: 25%;
+
+.bank .account {
+    display: inline-block;
 }
 
-#field{
+.bank {
+    position: absolute;
+    /*background-color: #7A0000;*/
+    right: 5px;
+    top: 5px;
+}
+
+
+#coin, .price {
+    content:url(pictures/coin_picture.png);
+    width: 40px;
+    height: 40px;
+}
+
+#money {
+    font-family: "font", serif;
+    text-align:center;
+    font-size:40px;
+}
+
+#menu{
+    bottom:330px;
+    right:200px;
+    width:150px;
+}
+
+#earnMoney{
+    bottom:410px;
+    right:30px;
+    width:450px;
+}
+
+.field {
     width: 70%;
     height: 70%;
     background: #e5e1c3;
@@ -59,96 +91,85 @@ body {
     font-family: "font", serif;
     text-align: center;
 }
-#field p{
-    text-align: center;
-    position:relative;
-}
-.free{
-    background: #b2b0b0;
+.field .frame{
     width: 28%;
     height: 41%;
-    position: absolute;
     cursor:pointer;
     font-size: 70px;
+    position: absolute;
 }
 
-#f1{
+
+.first{
     top:6%;
     left:4%;
 }
 
-#f2{
+.second{
     top: 6%;
     left: 36%;
 }
 
-#f3{
+.third{
     top: 6%;
     right: 4%;
 }
 
-#f4{
+.fourth{
     bottom: 6%;
     left: 4%;
 }
 
-#f5{
+.fifth{
     bottom: 6%;
     left: 36%;
 }
 
-#f6{
+.sixth{
     bottom: 6%;
     right: 4%;
 }
 
-.done{
+.field .free{
+    background: #b2b0b0;
+}
+
+.field .done{
     background: #d1f1f6;
-    width: 28%;
-    height: 41%;
-    position: absolute;
     cursor:pointer;
     font-size: 30px;
     visibility: hidden;
 }
-
-#f11{
-    top:6%;
-    left:4%;
+.field .blocked {
+    background: rgba(0, 0, 0, 0.8);
+    font-size: 40px;
+    color: white;
 }
 
-#f22{
-    top: 6%;
-    left: 36%;
-}
-
-#f33{
-    top: 6%;
-    right: 4%;
-}
-
-#f44{
-    bottom: 6%;
-    left: 4%;
-}
-
-#f55{
-    bottom: 6%;
-    left: 36%;
-}
-
-#f66{
-    bottom: 6%;
-    right: 4%;
-}
-
-#makeSub{
-    width: 70%;
-    height: 70%;
+.sub, .life, .subjects, .update{
+    width: 80%;
+    height: 80%;
     background: #e5e1c3;
     position: absolute;
-    top: 15%;
-    left: 15%;
+    top: 10%;
+    left: 10%;
+    border: 10px #a47829 double;
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
+    font-family: "font", serif;
+    font-size: 35px;
+    text-align: center;
+    visibility: hidden;
+    display: inline-block;
+}
+
+#buySub, #sadMessage {
+    width: 50vw;
+    height: 10vw;
+    background: #e5e1c3;
+    position: absolute;
+    margin-top: 20vw;
+    margin-left : 25vw;
+    justify-content: center;
     border: 10px #a47829 double;
     font-family: "font", serif;
     font-size: 40px;
@@ -156,15 +177,189 @@ body {
     visibility: hidden;
 }
 
-#makeSub label{
-    position: relative;
-    margin: 20px;
-    top: 20px;
+#page-mask {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
 }
 
-#makeSub input{
-    font-family: "font", serif;
+.life{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 3.5%;
 }
-#makeSub select{
-    font-family: "font", serif;
+
+.sub #create, #update, #delete{
+    position: absolute;
+    bottom: 10%;
+    height: 10%;
 }
+
+.sub #create{
+    left:45%
+}
+
+.sub #update{
+    left:35%;
+}
+
+.sub #delete{
+    right: 35%;
+}
+
+.sub label, #buySub label, #sadMessage label{
+    position: relative;
+}
+
+.sub .name{
+    top: 10%;
+}
+.teach{
+    top:17%;
+}
+.difficulty{
+    top:24%;
+}
+.hours{
+    top:31%;
+}
+.sub input, select, #buySub input, #sadMessage input{
+    font-family: "font", serif;
+    background: #e5e1c3;
+    border: #a47829 double;
+    cursor:pointer;
+    height: 7%;
+}
+
+.update input, .subjects input{
+    font-family: "font", serif;
+    font-size: larger;
+    background: #e5e1c3;
+    border: #a47829 double;
+    cursor:pointer;
+    height: 100%;
+}
+
+.life > p, #close, #c1, #startLife, #getCoins, #end{
+    font-family: "font", serif;
+    font-size: 40px;
+    background: #e5e1c3;
+    border: #a47829 double;
+    cursor:pointer;
+}
+
+.life #startLife, #end {
+    display: none;
+}
+
+.life > #close{
+    width: 41px;
+    height: 41px;
+    background: #006680;
+    color: #ffa500;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+input[type=range] {
+    height: 28px;
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 20%;
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    cursor: pointer;
+    animate: 0.2s;
+    background: #006680;
+    border-radius: 4px;
+    border: 2px solid #ffa500;
+}
+input[type=range]::-webkit-slider-thumb {
+    border: 2px solid #FFA500;
+    height: 20px;
+    width: 20px;
+    border-radius: 7px;
+    background: #006680;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -6px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #006680;
+}
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 12px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: #006680;
+    border-radius: 4px;
+    border: 2px solid #ffa500;
+}
+input[type=range]::-moz-range-thumb {
+    border: 2px solid #FFA500;
+    height: 20px;
+    width: 20px;
+    border-radius: 7px;
+    background: #006680;
+    cursor: pointer;
+}
+input[type=range]::-ms-track {
+    width: 100%;
+    height: 12px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+    background: #006680;
+    border: 2px solid #ffa500;
+    border-radius: 8px;
+}
+input[type=range]::-ms-fill-upper {
+    background: #006680;
+    border: 2px solid #ffa500;
+    border-radius: 8px;
+}
+input[type=range]::-ms-thumb {
+    margin-top: 1px;
+    border: 2px solid #FFA500;
+    height: 20px;
+    width: 20px;
+    border-radius: 7px;
+    background: #006680;
+    cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+    background: #006680;
+}
+input[type=range]:focus::-ms-fill-upper {
+    background: #006680;
+}
+
+.update, .subjects{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+
+
+

@@ -61,19 +61,18 @@
     <div class="done frame sixth" id="f66"></div>
 </div>
 
+<form class = "subjects" id = "chooseSub">
+    <input type="submit" id="math" value="Математика">
+    <input type="submit" id="soft" value="Софт-скилс">
+    <input type="submit" id="prog" value="Программирование">
+</form>
 
 <form class = "sub" id="makeSub">
     <label class = "name">Название предмета:
         <input type="text" name="name">
     </label><br>
     <label class = "teach">Преподаватель:
-        <select name="select" size="1" >
-            <option value="s1" rating="3">Арсений Шур</option>
-            <option value="s2" rating="5">Юрий Окуловский</option>
-            <option value="s3" rating="4">Андрей Гейн</option>
-            <option value="s4" rating="2">Иван Баширов</option>
-            <option value="s5" rating="3">Ульяна Алексеева</option>
-        </select>
+
     </label><br>
     <label class="difficulty">Сложность предмета:
         <input type = "range" class = "range" name="difficulty" min="0" max="10" onchange="document.getElementById('mRV1').value=value">

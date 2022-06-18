@@ -146,7 +146,7 @@ body {
     color: white;
 }
 
-.sub, .life{
+.sub, .life, .subjects{
     width: 80%;
     height: 80%;
     background: #e5e1c3;
@@ -195,7 +195,7 @@ body {
     padding: 3.5%;
 }
 
-.sub #create, #update, #delete {
+.sub #create, #update, #delete{
     position: absolute;
     bottom: 10%;
     height: 10%;

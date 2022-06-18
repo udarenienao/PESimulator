@@ -1,5 +1,6 @@
 let subMaker = document.getElementById("makeSub");
 let subUpdater = document.getElementById("updateSub");
+let subChoose = document.getElementById("chooseSub");
 let subjects = [];
 let moneyDisplay = document.getElementById("money");
 let canvas = document.getElementById('c1');
@@ -19,6 +20,10 @@ let gameStart = false;
 let endGame = false;
 let lifeStart = false;
 let buyer = document.getElementById("buySub");
+let dict = {"soft": {"1": 1, "2": 2, "3": 3},
+    "math": {"4": 4, "5": 5},
+    "prog": {"6": 1}};
+
 
 setInterval(function() {
     // console.log(subjects);
@@ -61,21 +66,37 @@ function makeNewForm(newForm, i) {
     })
 }
 
+
 for(let i = 1; i < 7; i++){
     let form = document.getElementById("f" + i);
     form.addEventListener("click", function () {
-        subMaker.style.visibility = "visible";
-        subMaker.addEventListener("submit", function handler(event) {
+        subChoose.style.visibility = "visible";
+        subChoose.addEventListener("submit", function handler(event) {
             event.preventDefault();
-            let name = subMaker.querySelector('[name="name"]').value;
-            let teacher = subMaker.querySelector('[name="select"] option:checked');
-            let diff = subMaker.querySelector('[name="difficulty"]');
-            let hours = subMaker.querySelector('[name="hours"]');
-            subjects[i] = new Subject(name, teacher, diff, hours);
-            makeNewForm(document.getElementById("f" + i + i), i);
-            form.style.visibility = "hidden";
-            subMaker.style.visibility = "hidden";
-            subMaker.removeEventListener("submit", handler)
+            subChoose.removeEventListener("submit", handler);
+            subChoose.style.visibility = "hidden";
+            subMaker.style.visibility = "visible";
+            let child = document.createElement("select");
+            Object.keys(dict[event.submitter.id]).forEach(function(element) {
+                let childChild = document.createElement("option");
+                childChild.textContent = element;
+                child.appendChild(childChild);
+            });
+            subMaker.getElementsByClassName("teach")[0].appendChild(child);
+            subMaker.addEventListener("submit", function handler1(event1) {
+                event1.preventDefault();
+                let name = subMaker.querySelector('[name="name"]').value;
+                let teacherName = subMaker.querySelector('[name="select"] option:checked');
+                let teacherRating = dict[event.submitter.id][teacherName];
+                let diff = subMaker.querySelector('[name="difficulty"]');
+                let hours = subMaker.querySelector('[name="hours"]');
+                subjects[i] = new Subject(name, teacherName, teacherRating, diff, hours);
+                makeNewForm(document.getElementById("f" + i + i), i);
+                form.style.visibility = "hidden";
+                subMaker.style.visibility = "hidden";
+                subMaker.getElementsByClassName("teach")[0].removeChild(child);
+                subMaker.removeEventListener("submit", handler1);
+            });
         });
     });
 
@@ -271,10 +292,10 @@ function fpp(i){
 }
 
 class Subject{
-    constructor(name, teacher, diff, hours) {
+    constructor(name, teacherName, teacherRating, diff, hours) {
         this.name = name;
-        this.teacherName = teacher.textContent;
-        this.teacherRating = teacher.getAttribute('rating');
+        this.teacherName = teacherName;
+        this.teacherRating = teacherRating;
         this.diff = diff;
         this.hours = hours;
         this._rating = this.#calculateRating();
@@ -282,23 +303,20 @@ class Subject{
     }
 
     #calculateRating() {
-        let worstDiffCond = Math.abs(this.diff.getAttribute('max') * 0.7 - this.diff.getAttribute('min'));
+        let worstDiffCond = Math.abs(this.diff.getAttribute('max') * 0.7 -
+            this.diff.getAttribute('min'));
+        console.log(worstDiffCond);
         let worstHoursCond = Math.max(4 - this.hours.getAttribute('min'),
             Math.abs(4 - this.hours.getAttribute('max')));
+        console.log(worstHoursCond);
         let worstCondition = worstHoursCond + worstDiffCond + 5;
+        console.log(worstCondition);
         let currDiffCond = Math.abs(this.diff.getAttribute('max') * 0.7 - this.diff.value);
+        console.log(currDiffCond);
         let currHoursCond = Math.abs(4 - this.hours.value);
+        console.log(currHoursCond);
+        console.log(this);
         return Math.round(100 - (currDiffCond + currHoursCond + 5 - this.teacherRating) / (worstCondition * 0.01));
-    }
-
-    updateCourse(name, teacher, diff, hours) {
-        this.name = name;
-        this.teacherName = teacher.textContent;
-        this.teacherRating = teacher.getAttribute('rating');
-        this.diff = diff;
-        this.hours = hours;
-        this._rating = this.#calculateRating();
-        this._profit = Math.round((this._rating - 50) * 0.1);
     }
 
     get rating() {

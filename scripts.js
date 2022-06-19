@@ -334,7 +334,7 @@ function startLife(){
     drawField();
     count++;
     document.getElementById('cyclesCount').textContent = count;
-    timer = setTimeout(startLife, 300);
+    timer = setTimeout(startLife, 150);
 }
 
 function fpm(i){

@@ -11,7 +11,7 @@ body {
     left:50%;
     position:absolute;
     margin:auto;
-    top:70%;
+    top:30%
 }
 
 #menu p{
@@ -34,13 +34,12 @@ body {
     color: #CFB687;
     font-family: "font", serif;
     cursor:pointer;
-    height:50px;
+    height:70px;
     width:500px;
     text-align:center;
     font-size:30px;
-    background-size: 1px 300%;
+    background-size: 1px;
     right: 50%;
-    bottom: 300px;
 }
 
 .button:hover{
@@ -55,5 +54,5 @@ body {
     margin: auto;
     width: 15%;
     right: 10%;
-    top: 13%
+    top: 13%;
 }

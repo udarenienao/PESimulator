@@ -8,7 +8,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: #90eadf;
+    background: #5f6d8a;
 }
 
 .button{
@@ -21,13 +21,13 @@ body {
     font-size:30px;
     /*background-size: 1px 300%;*/
     font-family: "font", serif;
-    color:orange;
+    color:#CFB687;
     text-align: center;
-    background-color: #006680;
+    background-color: #1F325A;
 }
 
 .button:hover{
-    background:#7A0000;
+    background:#873224;
     color:white;
     -webkit-transform:rotate(-1deg);
     transform:rotate(-2deg);
@@ -44,7 +44,7 @@ body {
     position: relative;
     /*background-size: 1px 300%;*/
     font-family: "font", serif;
-    color:orange;
+    color:#CFB687;
 }
 
 /* Bottom left text */

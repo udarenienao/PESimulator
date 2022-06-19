@@ -319,7 +319,7 @@ function startLife(){
                 if (mas2[i][j] === 1) {
                     if (mas[i][j] === 2) {
                         moneyCount--;
-                        moneyDisplay.innerText = `${1 + Number(moneyDisplay.innerText)}`;
+                        moneyDisplay.innerText = `${10 + Number(moneyDisplay.innerText)}`;
                     }
                 } else if (mas[i][j] === 2) {
                     mas2[i][j] = 2;

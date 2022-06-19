@@ -4,7 +4,7 @@
 }
 
 body {
-    background: #90eadf;
+    background: #5f6d8a;
 }
 
 #menu {
@@ -18,12 +18,20 @@ body {
     position:relative;
     top: 25%;
 }
+
+.name{
+    font-family: "font", serif;
+    font-size: 50px;
+    color: #CFB687;
+    text-align: center;
+}
+
 .button{
     position:relative;
-    background:#006680;
+    background: #1F325A;
     -webkit-transition:0.5s;
     transition:0.5s;
-    color:orange;
+    color: #CFB687;
     font-family: "font", serif;
     cursor:pointer;
     height:50px;
@@ -36,7 +44,7 @@ body {
 }
 
 .button:hover{
-    background:#7A0000;
+    background:#873224;
     color:white;
     -webkit-transform:rotate(-1deg);
     transform:rotate(-2deg);

@@ -4,7 +4,7 @@
 }
 
 body {
-    background: #90eadf;
+    background: #5f6d8a;
 }
 
 #buttons{
@@ -21,13 +21,13 @@ body {
 .button{
     height:50px;
     position:relative;
-    background:#006680;
+    background:#1F325A;
     text-align:center;
     font-size:30px;
     background-size: 1px 300%;
     -webkit-transition:0.5s;
     transition:0.5s;
-    color:orange;
+    color:#CFB687;
     font-family: "font", serif;
     cursor:pointer;
 }
@@ -37,7 +37,7 @@ body {
     top: 25%;
 }
 .button:hover{
-    background:#7A0000;
+    background:#873224;
     color:white;
     -webkit-transform:rotate(-1deg);
     transform:rotate(-2deg);
@@ -83,7 +83,7 @@ body {
 .field {
     width: 70%;
     height: 70%;
-    background: #e5e1c3;
+    background: #CFB687;
     position: absolute;
     top: 15%;
     left: 15%;
@@ -135,7 +135,7 @@ body {
 }
 
 .field .done{
-    background: #d1f1f6;
+    background: #A3AEC4;
     cursor:pointer;
     font-size: 30px;
     visibility: hidden;
@@ -149,7 +149,7 @@ body {
 .sub, .life, .subjects, .update{
     width: 80%;
     height: 80%;
-    background: #e5e1c3;
+    background: #CFB687;
     position: absolute;
     top: 10%;
     left: 10%;
@@ -165,7 +165,7 @@ body {
 #buySub, #sadMessage {
     width: 50vw;
     height: 10vw;
-    background: #e5e1c3;
+    background: #CFB687;
     position: absolute;
     margin-top: 20vw;
     margin-left : 25vw;
@@ -235,7 +235,7 @@ body {
 }
 .sub input, select, #buySub input, #sadMessage input{
     font-family: "font", serif;
-    background: #e5e1c3;
+    background: #CFB687;
     border: #a47829 double;
     cursor:pointer;
     height: 7%;
@@ -248,7 +248,7 @@ body {
 .update input, .subjects input{
     font-family: "font", serif;
     font-size: larger;
-    background: #e5e1c3;
+    background: #CFB687;
     border: #a47829 double;
     cursor:pointer;
     height: 100%;
@@ -257,7 +257,7 @@ body {
 .life > p, #close, #c1, #startLife, #getCoins, #end{
     font-family: "font", serif;
     font-size: 40px;
-    background: #e5e1c3;
+    background: #CFB687;
     border: #a47829 double;
     cursor:pointer;
 }
@@ -269,8 +269,8 @@ body {
 .life > #close{
     width: 41px;
     height: 41px;
-    background: #006680;
-    color: #ffa500;
+    background: #1F325A;
+    color: #CFB687;
     border: none;
     text-align: center;
     cursor: pointer;
@@ -292,38 +292,38 @@ input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
     cursor: pointer;
     animate: 0.2s;
-    background: #006680;
+    background: #1F325A;
     border-radius: 4px;
-    border: 2px solid #ffa500;
+    border: 2px solid #CFB687;
 }
 input[type=range]::-webkit-slider-thumb {
-    border: 2px solid #FFA500;
+    border: 2px solid #CFB687;
     height: 20px;
     width: 20px;
     border-radius: 7px;
-    background: #006680;
+    background: #1F325A;
     cursor: pointer;
     -webkit-appearance: none;
     margin-top: -6px;
 }
 input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #006680;
+    background: #1F325A;
 }
 input[type=range]::-moz-range-track {
     width: 100%;
     height: 12px;
     cursor: pointer;
     animate: 0.2s;
-    background: #006680;
+    background: #1F325A;
     border-radius: 4px;
-    border: 2px solid #ffa500;
+    border: 2px solid #CFB687;
 }
 input[type=range]::-moz-range-thumb {
-    border: 2px solid #FFA500;
+    border: 2px solid #CFB687;
     height: 20px;
     width: 20px;
     border-radius: 7px;
-    background: #006680;
+    background: #1F325A;
     cursor: pointer;
 }
 input[type=range]::-ms-track {
@@ -336,29 +336,29 @@ input[type=range]::-ms-track {
     color: transparent;
 }
 input[type=range]::-ms-fill-lower {
-    background: #006680;
-    border: 2px solid #ffa500;
+    background: #1F325A;
+    border: 2px solid #CFB687;
     border-radius: 8px;
 }
 input[type=range]::-ms-fill-upper {
-    background: #006680;
-    border: 2px solid #ffa500;
+    background: #1F325A;
+    border: 2px solid #CFB687;
     border-radius: 8px;
 }
 input[type=range]::-ms-thumb {
     margin-top: 1px;
-    border: 2px solid #FFA500;
+    border: 2px solid #CFB687;
     height: 20px;
     width: 20px;
     border-radius: 7px;
-    background: #006680;
+    background: #1F325A;
     cursor: pointer;
 }
 input[type=range]:focus::-ms-fill-lower {
-    background: #006680;
+    background: #1F325A;
 }
 input[type=range]:focus::-ms-fill-upper {
-    background: #006680;
+    background: #1F325A;
 }
 
 .update, .subjects{

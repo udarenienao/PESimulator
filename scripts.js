@@ -32,9 +32,11 @@ setInterval(function() {
         return;
     }
     for (let i = 0; i < subjects.length; i++) {
-        if (Math.random() < 0.33) {
-            subjects[i].updateRating(-1);
-            updateForm(i);
+        if (subjects[i]) {
+            if (Math.random() < 0.33) {
+                subjects[i].updateRating(-1);
+                updateForm(i);
+            }
         }
     }
     let profit = subjects.map(function(subject) {

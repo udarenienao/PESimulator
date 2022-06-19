@@ -357,13 +357,13 @@ class Subject{
         this.teacherRating = teacherRating;
         this.diff = diff;
         this.hours = hours;
-        this._rating = this.#calculateRating.bind(this)();
+        this._rating = this.calculateRating.bind(this)();
         this._profit = Math.round((this._rating - 50) * 0.1);
         Subject.amount += 1;
         Subject.average += this._rating;
     }
 
-    #calculateRating() {
+    calculateRating() {
         let worstDiffCond = Math.abs(this.diff.getAttribute('max') * 0.7 -
             this.diff.getAttribute('min'));
         let worstHoursCond = Math.max(4 - this.hours.getAttribute('min'),

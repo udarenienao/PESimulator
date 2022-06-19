@@ -28,6 +28,7 @@ body {
     color:#CFB687;
     text-align: center;
     background-color: #1F325A;
+    cursor:pointer;
 }
 
 .button:hover{

@@ -18,6 +18,14 @@ body {
     position:relative;
     top: 25%;
 }
+
+.name{
+    font-family: "font", serif;
+    font-size: 50px;
+    color: #CFB687;
+    text-align: center;
+}
+
 .button{
     position:relative;
     background: #1F325A;

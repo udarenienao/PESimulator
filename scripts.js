@@ -387,4 +387,3 @@ class Subject{
         return this._profit;
     }
 }
-

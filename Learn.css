@@ -18,8 +18,8 @@ body {
 
 .button{
     position: relative;
-    margin: 20px;
-    width: 500px;
+    margin: 5%;
+    width: 50%;
     -webkit-transition:0.5s;
     transition:0.5s;
     font-size:30px;
@@ -29,6 +29,7 @@ body {
     text-align: center;
     background-color: #1F325A;
     cursor:pointer;
+    bottom: -10%;
 }
 
 .button:hover{
